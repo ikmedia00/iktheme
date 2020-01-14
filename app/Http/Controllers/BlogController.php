@@ -13,4 +13,11 @@ class BlogController extends Controller
 
         return view('beranda', compact('data'));
     }
+
+    public function single_post($slug)
+    {
+        $data = Posts::where('slug', $slug)->get();
+
+        return view('blog_post.isi_post', compact('data'));
+    }
 }
